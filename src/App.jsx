@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './App.css'
 
 
 function App(){
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(() => {
+    const localValue = localStorage.getItem("count")
+    if(localValue === null) return 0
+    return Number(localValue)
+  })
+
+  useEffect(() => {
+    localStorage.setItem("count", String(count))
+  }, [count])
 
   function incrementCount(){
     setCount(count => {
@@ -21,11 +29,11 @@ function App(){
   return (
     <>
       <div>
-        <h1>{count}</h1>
+        <h1>{ count }</h1>
       </div>
       <div>
-        <button onClick={decrementCount}>-</button>
-        <button onClick={incrementCount}>+</button>
+        <button onClick={ decrementCount }>-</button>
+        <button onClick={ incrementCount }>+</button>
       </div>
     </>
   )
