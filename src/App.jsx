@@ -9,7 +9,7 @@ function App() {
       <Prayer prayerText="Subhanallah" />
       <Prayer prayerText="Alhamdulillah" />
       <Prayer prayerText="Allahu Akbar" />
-      <Prayer prayerText="La ilaha illallah" />
+      <Prayer prayerText="La Ilaha Illallah" />
     </>
   )
 }
