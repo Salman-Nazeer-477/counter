@@ -55,7 +55,7 @@ button:focus-visible {
 }
 
 .red{
-   background-color: red;
+   background-color: #800000;
 }
 
 
@@ -71,6 +71,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
   .red{
-    background-color: red;
+    background-color: #800000;
   }
 }
