@@ -54,7 +54,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button .red{
+.red{
    background-color: red;
 }
 
@@ -70,7 +70,7 @@ button .red{
   button {
     background-color: #f9f9f9;
   }
-  button .red{
-   background-color: red;
+  .red{
+    background-color: red;
   }
 }
