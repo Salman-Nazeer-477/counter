@@ -34,7 +34,7 @@ function App() {
   }
   function handleSubmit(e){
     e.preventDefault()
-    addNewPrayer(newPrayerText)
+    addNewPrayerText(newPrayerText)
   }
   return (
     <>
