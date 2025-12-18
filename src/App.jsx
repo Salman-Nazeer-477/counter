@@ -37,7 +37,7 @@ function App() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit>
+      <form onSubmit={handleSubmit}>
         <input type="text" onChange={(e)=>setNewPrayerText(e.target.value)} />
         <button>Add</button>
       </form>
