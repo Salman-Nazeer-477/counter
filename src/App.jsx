@@ -28,7 +28,7 @@ function App() {
           prayerText: newPrayerText
         },
       ]
-    }
+    })
   }
   function handleSubmit(){
     e.preventDefault()
