@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <form>
-        <input type="text" onChange={(e)=>setNewPrayerText(e.target.value)}>
+        <input type="text" onChange={(e)=>setNewPrayerText(e.target.value)} />
         <button onClick={handleSubmit}></button>
       </form>
       {prayers.map(prayer => {
