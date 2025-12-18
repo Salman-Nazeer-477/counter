@@ -1,5 +1,5 @@
 import Prayer from './Prayer'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 
@@ -19,6 +19,7 @@ function App() {
     }
   ])
   const [newPrayerText, setNewPrayerText] = useState("")
+  
   function addNewPrayerText(newPrayerText){
     setPrayers(prayers => {
       if(newPrayerText === "") return prayers
@@ -30,7 +31,7 @@ function App() {
       ]
     })
   }
-  function handleSubmit(){
+  function handleSubmit(e){
     e.preventDefault()
     addNewPrayer(newPrayerText)
   }
