@@ -30,6 +30,7 @@ function App() {
         },
       ]
     })
+    setNewPrayerText("")
   }
   function handleSubmit(e){
     e.preventDefault()
@@ -38,7 +39,7 @@ function App() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={(e)=>setNewPrayerText(e.target.value)} />
+        <input type="text" onChange={(e)=>setNewPrayerText(e.target.value)} >{newPrayerText}</input>
         <button>Add</button>
       </form>
       {prayers.map(prayer => {
