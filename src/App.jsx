@@ -3,13 +3,25 @@ import './App.css'
 
 
 function App() {
-
+  const prayers = [
+    {
+      prayerText: "Subhanallah",
+    },
+    {
+      prayerText: "Alhamdullillah",
+    },
+    {
+      prayerText: "Allahu Akbar",
+    },
+    {
+      prayerText: "La Ilaha Illallah"
+    }
+  ]
   return (
     <>
-      <Prayer prayerText="Subhanallah" />
-      <Prayer prayerText="Alhamdulillah" />
-      <Prayer prayerText="Allahu Akbar" />
-      <Prayer prayerText="La Ilaha Illallah" />
+      {prayers.map(prayer => {
+        return <Prayer prayerText={prayer.prayerText} />
+      })}
     </>
   )
 }
