@@ -6,10 +6,10 @@ import './App.css'
 function App() {
   const [prayers, setPrayers] = useState([])
   const [newPrayerText, setNewPrayerText] = useState("")
-  
-  function addNewPrayerText(newPrayerText){
+
+  function addNewPrayerText(newPrayerText) {
     setPrayers(prayers => {
-      if(newPrayerText === "") return prayers
+      if (newPrayerText === "") return prayers
       return [
         ...prayers,
         {
@@ -21,29 +21,29 @@ function App() {
     setNewPrayerText("")
   }
 
-  function deletePrayer(id){
-    setPrayers(prayers=>{
+  function deletePrayer(id) {
+    setPrayers(prayers => {
       return prayers.filter(prayer => prayer.prayerId !== id)
     })
   }
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault()
     addNewPrayerText(newPrayerText)
   }
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input 
-          value={newPrayerText} 
-          type="text" 
-          onChange={(e)=>setNewPrayerText(e.target.value)} 
+        <input
+          value={newPrayerText}
+          type="text"
+          onChange={(e) => setNewPrayerText(e.target.value)}
         />
         <button>Add</button>
       </form>
       {
         prayers.map(prayer => {
           return <Prayer deletePrayer={deletePrayer} key={prayer.prayerId} prayerText={prayer.prayerText} prayerId={prayer.prayerId} />
-      })}
+        })}
     </>
   )
 }
