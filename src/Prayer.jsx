@@ -16,7 +16,8 @@ export default function Prayer(props){
             <div className="prayer-component">
                 <span className="prayer-content">
                     <p className="prayer-text">{props.prayerText}</p>
-                    <button className="red" onClick={() => setCount(0)}>x</button>
+                    <button className="red" onClick={() => props.deletePrayer(props.prayerId)}>X</button>
+                    <button className="red" onClick={() => setCount(0)}>C</button>
                     <button onClick={() => setCount(count + 1)}>{count}</button>
                 </span>
             </div>

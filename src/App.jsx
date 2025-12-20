@@ -4,20 +4,7 @@ import './App.css'
 
 
 function App() {
-  const [prayers, setPrayers] = useState([
-    {
-      prayerText: "Subhanallah",
-    },
-    {
-      prayerText: "Alhamdullillah",
-    },
-    {
-      prayerText: "Allahu Akbar",
-    },
-    {
-      prayerText: "La Ilaha Illallah"
-    }
-  ])
+  const [prayers, setPrayers] = useState([])
   const [newPrayerText, setNewPrayerText] = useState("")
   
   function addNewPrayerText(newPrayerText){
@@ -26,11 +13,18 @@ function App() {
       return [
         ...prayers,
         {
-          prayerText: newPrayerText
+          prayerText: newPrayerText,
+          prayerId: crypto.randomUUID()
         },
       ]
     })
     setNewPrayerText("")
+  }
+
+  function deletePrayer(id){
+    setPrayers(prayers=>{
+      return prayers.filter(prayer => prayer.prayerId !== id)
+    })
   }
   function handleSubmit(e){
     e.preventDefault()
@@ -48,7 +42,7 @@ function App() {
       </form>
       {
         prayers.map(prayer => {
-          return <Prayer prayerText={prayer.prayerText} />
+          return <Prayer deletePrayer={deletePrayer} key={prayer.prayerId} prayerText={prayer.prayerText} prayerId={prayer.prayerId} />
       })}
     </>
   )
