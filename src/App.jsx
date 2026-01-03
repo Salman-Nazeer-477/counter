@@ -4,7 +4,15 @@ import './App.css'
 
 
 function App() {
-  const [prayers, setPrayers] = useState([])
+  const [prayers, setPrayers] = useState(()=>{
+    const localValue = localStorage.getItem("prayers")
+    if(localValue === null) return []
+    return JSON.parse(localValue)
+  })
+
+  useEffect(()=>{
+    localStorage.setItem("prayers", JSON.stringify(prayers))
+  }, [prayers])
   const [newPrayerText, setNewPrayerText] = useState("")
 
   function addNewPrayerText(newPrayerText) {
