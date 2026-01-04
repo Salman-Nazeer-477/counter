@@ -22,7 +22,8 @@ function App() {
         ...prayers,
         {
           prayerText: newPrayerText,
-          prayerId: crypto.randomUUID()
+          prayerId: crypto.randomUUID(),
+          count: 0,
         },
       ]
     })
@@ -37,6 +38,15 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault()
     addNewPrayerText(newPrayerText)
+  }
+
+  function updateCount(id, count){
+    setPrayers(currentPrayers => {
+      return currentPrayers.map(prayer => {
+        if(id === prayer.prayerId) return {...prayer, count}
+        return prayer
+      })
+    })
   }
   return (
     <>
@@ -55,6 +65,8 @@ function App() {
             key={prayer.prayerId}
             prayerText={prayer.prayerText}
             prayerId={prayer.prayerId} 
+            count={prayer.count}
+            updateCount={updateCount}
           />
         })}
     </>
