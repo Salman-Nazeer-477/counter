@@ -4,13 +4,13 @@ import './App.css'
 
 
 function App() {
-  const [prayers, setPrayers] = useState(()=>{
+  const [prayers, setPrayers] = useState(() => {
     const localValue = localStorage.getItem("prayers")
-    if(localValue === null) return []
+    if (localValue === null) return []
     return JSON.parse(localValue)
   })
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem("prayers", JSON.stringify(prayers))
   }, [prayers])
   const [newPrayerText, setNewPrayerText] = useState("")
@@ -50,7 +50,12 @@ function App() {
       </form>
       {
         prayers.map(prayer => {
-          return <Prayer deletePrayer={deletePrayer} key={prayer.prayerId} prayerText={prayer.prayerText} prayerId={prayer.prayerId} />
+          return <Prayer 
+            deletePrayer={deletePrayer}
+            key={prayer.prayerId}
+            prayerText={prayer.prayerText}
+            prayerId={prayer.prayerId} 
+          />
         })}
     </>
   )
